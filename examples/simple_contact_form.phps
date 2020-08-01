@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 require '../vendor/autoload.php';
 
-if (array_key_exists('to', $_POST)) {
+if ( array_key_exists('to', $_POST) ) {
     $err = false;
     $msg = '';
     $email = '';
@@ -45,7 +45,9 @@ if (array_key_exists('to', $_POST)) {
     }
     //Make sure the address they provided is valid before trying to use it
     if (array_key_exists('email', $_POST) && PHPMailer::validateAddress($_POST['email'])) {
+
         $email = $_POST['email'];
+        
     } else {
         $msg .= 'Error: invalid email address provided';
         $err = true;
